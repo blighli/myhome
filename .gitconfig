@@ -1,3 +1,7 @@
 [user]
 	email = blighli@gmail.com
 	name = liqilei
+[push]
+	default = simple
+[credential]
+	helper = store
