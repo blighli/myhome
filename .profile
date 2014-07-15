@@ -36,5 +36,5 @@ PATH=$PATH:$APPS/ant/bin
 PATH=$PATH:$APPS/maven/bin
 PATH=$PATH:$APPS/ruby/bin
 PATH=$PATH:$APPS/play
-
+PATH=$PATH:$APPS/nginx/sbin
 
