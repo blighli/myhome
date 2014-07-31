@@ -40,5 +40,4 @@ PATH=$PATH:$APPS/play
 PATH=$PATH:$APPS/nginx/sbin
 PATH=$PATH:$APPS/hadoop/bin
 PATH=$PATH:$APPS/mytools
-PATH=$PATH:$APPS/play
 
