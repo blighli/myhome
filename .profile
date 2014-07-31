@@ -28,6 +28,7 @@ APPS=$HOME/apps
 export JAVA_HOME=$APPS/jdk
 export M2_HOME=$APPS/maven
 export ANT_HOME=$APPS/ant
+export HADOOP_HOME=$APPS/hadoop
 
 #path
 PATH=$PATH:$APPS/jdk/bin
@@ -37,4 +38,7 @@ PATH=$PATH:$APPS/maven/bin
 PATH=$PATH:$APPS/ruby/bin
 PATH=$PATH:$APPS/play
 PATH=$PATH:$APPS/nginx/sbin
+PATH=$PATH:$APPS/hadoop/bin
+PATH=$PATH:$APPS/mytools
+PATH=$PATH:$APPS/play
 
