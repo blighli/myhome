@@ -41,8 +41,3 @@ PATH=$PATH:$APPS/nginx/sbin
 PATH=$PATH:$APPS/hadoop/bin
 PATH=$PATH:$APPS/mytools
 PATH=$PATH:$APPS/spring/bin
-
-
-export PATH=/home/liqilei/apps/versions/SenchaCmd-5.0.1.231/Sencha/Cmd/5.0.1.231:$PATH
-
-export SENCHA_CMD_3_0_0="/home/liqilei/apps/versions/SenchaCmd-5.0.1.231/Sencha/Cmd/5.0.1.231"
