@@ -2,13 +2,23 @@
 
 script_dir=$(cd "$(dirname "$0")"; pwd)
 
-echo "script dir is $script_dir"
+echo "setup script is located in $script_dir"
 
-rm $HOME/.profile
-echo "link $HOME/.profile to $script_dir/.profile"
-ln -s $script_dir/.profile $HOME/.profile
+echo "link $script_dir/.profile to $HOME/.profile"
+ln -sf $script_dir/.profile $HOME/.profile
 
-rm $HOME/.gitconfig
-echo "link $HOME/.gitconfig to $script_dir/.gitconfig"
-ln -s $script_dir/.gitconfig $HOME/.gitconfig
+echo "link $script_dir/.gitconfig to $HOME/.gitconfig"
+ln -sf $script_dir/.gitconfig $HOME/.gitconfig
+
+echo "link $script_dir/pip to $HOME/pip"
+ln -sf $script_dir/pip $HOME/pip
+
+echo "link $script_dir/.pip to $HOME/.pip"
+ln -sf $script_dir/.pip $HOME/.pip
+
+echo "link $script_dir/.gemrc to $HOME/.gemrc"
+ln -sf $script_dir/.gemrc $HOME/.gemrc
+
+echo "link $script_dir/.npmrc to $HOME/.npmrc"
+ln -sf $script_dir/.npmrc $HOME/.npmrc
 
