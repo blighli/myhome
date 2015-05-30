@@ -2,7 +2,7 @@
 
 SCRIPT_DIR=$(cd "$(dirname "$0")"; pwd)
 
-echo "setup script is located in $SCRIPT_DIR"
+echo "Setup script is located in $SCRIPT_DIR"
 
 echo "Copy $SCRIPT_DIR/.gitconfig to $HOME/.gitconfig"
 ln -sf $SCRIPT_DIR/.gitconfig $HOME/.gitconfig
@@ -13,7 +13,7 @@ cp -f $SCRIPT_DIR/.gemrc $HOME/.gemrc
 echo "Copy $SCRIPT_DIR/.npmrc to $HOME/.npmrc"
 cp -f $SCRIPT_DIR/.npmrc $HOME/.npmrc
 
-if [[ $(uname | grep MINGW) ]]; then
+if [ -n $(uname | grep MINGW) ]; then
 	echo "This is Windows"
 	echo "Copy $SCRIPT_DIR/pip to $HOME/pip"
 	cp -rf $SCRIPT_DIR/pip $HOME/pip
