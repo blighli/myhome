@@ -1,30 +1,42 @@
 #!/usr/bin/env sh
 
-script_dir=$(cd "$(dirname "$0")"; pwd)
+SCRIPT_DIR=$(cd "$(dirname "$0")"; pwd)
 
-echo "setup script is located in $script_dir"
+echo "setup script is located in $SCRIPT_DIR"
+
+echo "Copy $SCRIPT_DIR/.gemrc to $HOME/.gemrc"
+cp -f $SCRIPT_DIR/.gemrc $HOME/.gemrc
+
+echo "Copy $SCRIPT_DIR/.npmrc to $HOME/.npmrc"
+cp -f $SCRIPT_DIR/.npmrc $HOME/.npmrc
+
+if [[ $(uname | grep MINGW) ]]; then
+	echo "This is Windows"
+	echo "Copy $SCRIPT_DIR/pip to $HOME/pip"
+	cp -rf $SCRIPT_DIR/pip $HOME/pip
+	exit 0
+fi
+
+echo "This is Linux or MacOS"
+
+echo "Copy $SCRIPT_DIR/.profile to $HOME/.profile"
+cp -f $SCRIPT_DIR/.profile $HOME/.profile
+
+echo "Copy $SCRIPT_DIR/pip to $HOME/.pip"
+cp -rf $SCRIPT_DIR/pip $HOME/.pip
+echo "Move $HOME/.pip/pip.ini to $HOME/.pip/pip.conf"
+mv -f $HOME/.pip/pip.ini $HOME/.pip/pip.conf
+
+if [ $(uname | grep Linux) ]; then
+	
+	echo "This is Linux"
+	
+	if [ -z $(cat /etc/apt/sources.list | grep aliyun) ]; then
+		echo "change apt source to mirrors.aliyun.com"
+		sudo sed -i 's/archive.ubuntu.com/mirrors.aliyun.com/' /etc/apt/sources.list
+		sudo apt-get update
+	fi
+fi
 
 
-echo "change apt source to mirrors.aliyun.com"
-sudo sed -i 's/archive.ubuntu.com/mirrors.aliyun.com/' /etc/apt/sources.list
-sudo apt-get update
-
-
-echo "link $script_dir/.profile to $HOME/.profile"
-ln -sf $script_dir/.profile $HOME/.profile
-
-echo "link $script_dir/.gitconfig to $HOME/.gitconfig"
-ln -sf $script_dir/.gitconfig $HOME/.gitconfig
-
-echo "link $script_dir/pip to $HOME/pip"
-ln -sf $script_dir/pip $HOME/pip
-
-echo "link $script_dir/.pip to $HOME/.pip"
-ln -sf $script_dir/.pip $HOME/.pip
-
-echo "link $script_dir/.gemrc to $HOME/.gemrc"
-ln -sf $script_dir/.gemrc $HOME/.gemrc
-
-echo "link $script_dir/.npmrc to $HOME/.npmrc"
-ln -sf $script_dir/.npmrc $HOME/.npmrc
 
