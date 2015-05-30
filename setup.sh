@@ -4,6 +4,12 @@ script_dir=$(cd "$(dirname "$0")"; pwd)
 
 echo "setup script is located in $script_dir"
 
+
+echo "change apt source to mirrors.aliyun.com"
+sudo sed -i 's/archive.ubuntu.com/mirrors.aliyun.com/' /etc/apt/sources.list
+sudo apt-get update
+
+
 echo "link $script_dir/.profile to $HOME/.profile"
 ln -sf $script_dir/.profile $HOME/.profile
 
