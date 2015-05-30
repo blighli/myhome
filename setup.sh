@@ -13,14 +13,14 @@ cp -f $SCRIPT_DIR/.gemrc $HOME/.gemrc
 echo "Copy $SCRIPT_DIR/.npmrc to $HOME/.npmrc"
 cp -f $SCRIPT_DIR/.npmrc $HOME/.npmrc
 
-if [ -n $(uname | grep MINGW) ]; then
+if [ -n "$(uname | grep MINGW)" ]; then
 	echo "This is Windows"
 	echo "Copy $SCRIPT_DIR/pip to $HOME/pip"
 	cp -rf $SCRIPT_DIR/pip $HOME/pip
 	exit 0
-elif [ $(uname | grep Linux) ]; then
+elif [ -n "$(uname | grep Linux)" ]; then
 	echo "This is Linux"
-	if [ -z $(cat /etc/apt/sources.list | grep aliyun) ]; then
+	if [ -z "$(cat /etc/apt/sources.list | grep aliyun)" ]; then
 		echo "change apt source to mirrors.aliyun.com"
 		sudo sed -i 's/archive.ubuntu.com/mirrors.aliyun.com/' /etc/apt/sources.list
 		sudo apt-get update
