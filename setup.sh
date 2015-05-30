@@ -18,9 +18,14 @@ if [ -n $(uname | grep MINGW) ]; then
 	echo "Copy $SCRIPT_DIR/pip to $HOME/pip"
 	cp -rf $SCRIPT_DIR/pip $HOME/pip
 	exit 0
+elif [ $(uname | grep Linux) ]; then
+	echo "This is Linux"
+	if [ -z $(cat /etc/apt/sources.list | grep aliyun) ]; then
+		echo "change apt source to mirrors.aliyun.com"
+		sudo sed -i 's/archive.ubuntu.com/mirrors.aliyun.com/' /etc/apt/sources.list
+		sudo apt-get update
+	fi
 fi
-
-echo "This is Linux or MacOS"
 
 echo "Copy $SCRIPT_DIR/.profile to $HOME/.profile"
 cp -f $SCRIPT_DIR/.profile $HOME/.profile
@@ -30,16 +35,7 @@ cp -rf $SCRIPT_DIR/pip $HOME/.pip
 echo "Move $HOME/.pip/pip.ini to $HOME/.pip/pip.conf"
 mv -f $HOME/.pip/pip.ini $HOME/.pip/pip.conf
 
-if [ $(uname | grep Linux) ]; then
-	
-	echo "This is Linux"
-	
-	if [ -z $(cat /etc/apt/sources.list | grep aliyun) ]; then
-		echo "change apt source to mirrors.aliyun.com"
-		sudo sed -i 's/archive.ubuntu.com/mirrors.aliyun.com/' /etc/apt/sources.list
-		sudo apt-get update
-	fi
-fi
+
 
 
 
