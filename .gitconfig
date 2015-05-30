@@ -9,3 +9,10 @@
 	proxy = 'socks5://127.0.0.1:1080'
 [https]
 	proxy = 'socks5://127.0.0.1:1080'
+[alias]
+	co = checkout
+	br = branch
+	ci = commit
+	st = status
+	last = log -1 HEAD
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
