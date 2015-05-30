@@ -5,7 +5,7 @@ SCRIPT_DIR=$(cd "$(dirname "$0")"; pwd)
 echo "Setup script is located in $SCRIPT_DIR"
 
 echo "Copy $SCRIPT_DIR/.gitconfig to $HOME/.gitconfig"
-ln -sf $SCRIPT_DIR/.gitconfig $HOME/.gitconfig
+cp -f $SCRIPT_DIR/.gitconfig $HOME/.gitconfig
 
 echo "Copy $SCRIPT_DIR/.gemrc to $HOME/.gemrc"
 cp -f $SCRIPT_DIR/.gemrc $HOME/.gemrc
