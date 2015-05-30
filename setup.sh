@@ -30,10 +30,9 @@ fi
 echo "Copy $SCRIPT_DIR/.profile to $HOME/.profile"
 cp -f $SCRIPT_DIR/.profile $HOME/.profile
 
-echo "Copy $SCRIPT_DIR/pip to $HOME/.pip"
-cp -rf $SCRIPT_DIR/pip $HOME/.pip
-echo "Move $HOME/.pip/pip.ini to $HOME/.pip/pip.conf"
-mv -f $HOME/.pip/pip.ini $HOME/.pip/pip.conf
+echo "Copy $SCRIPT_DIR/pip/pip.ini to $HOME/.pip/pip.conf"
+mkdir $HOME/.pip
+cp -f $SCRIPT_DIR/pip/pip.ini $HOME/.pip/pip.conf
 
 
 
