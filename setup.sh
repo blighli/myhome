@@ -16,7 +16,8 @@ cp -f $SCRIPT_DIR/.npmrc $HOME/.npmrc
 if [ -n "$(uname | grep MINGW)" ]; then
 	echo "This is Windows"
 	echo "Copy $SCRIPT_DIR/pip to $HOME/pip"
-	cp -rf $SCRIPT_DIR/pip $HOME/pip
+	rm -rf $HOME/pip
+	cp -r $SCRIPT_DIR/pip $HOME/pip
 	exit 0
 elif [ -n "$(uname | grep Linux)" ]; then
 	echo "This is Linux"
@@ -31,9 +32,9 @@ echo "Copy $SCRIPT_DIR/.profile to $HOME/.profile"
 cp -f $SCRIPT_DIR/.profile $HOME/.profile
 
 echo "Copy $SCRIPT_DIR/pip/pip.ini to $HOME/.pip/pip.conf"
-mkdir $HOME/.pip
-cp -f $SCRIPT_DIR/pip/pip.ini $HOME/.pip/pip.conf
-
+rm -rf $HOME/.pip
+cp -r $SCRIPT_DIR/pip $HOME/.pip
+mv $HOME/.pip/pip.ini $HOME/.pip/pip.conf
 
 
 
