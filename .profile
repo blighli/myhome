@@ -21,23 +21,26 @@ if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
 
+
+LS_COLORS=$LS_COLORS:'di=4;32:' ; export LS_COLORS
+
 #define
 export APPS=$HOME/apps
 
 #export
-export JAVA_HOME=$APPS/jdk
-export M2_HOME=$APPS/maven
-export ANT_HOME=$APPS/ant
-export HADOOP_HOME=$APPS/hadoop
+#export JAVA_HOME=$APPS/jdk
+#export M2_HOME=$APPS/maven
+#export ANT_HOME=$APPS/ant
+#export HADOOP_HOME=$APPS/hadoop
 
 #path
-PATH=$PATH:$APPS/jdk/bin
-PATH=$PATH:$APPS/node/bin
-PATH=$PATH:$APPS/ant/bin
-PATH=$PATH:$APPS/maven/bin
-PATH=$PATH:$APPS/ruby/bin
-PATH=$PATH:$APPS/play
-PATH=$PATH:$APPS/nginx/sbin
-PATH=$PATH:$APPS/hadoop/bin
-PATH=$PATH:$APPS/mytools
-PATH=$PATH:$APPS/spring/bin
+#PATH=$PATH:$APPS/jdk/bin
+#PATH=$PATH:$APPS/node/bin
+#PATH=$PATH:$APPS/ant/bin
+#PATH=$PATH:$APPS/maven/bin
+#PATH=$PATH:$APPS/ruby/bin
+#PATH=$PATH:$APPS/play
+#PATH=$PATH:$APPS/nginx/sbin
+#PATH=$PATH:$APPS/hadoop/bin
+#PATH=$PATH:$APPS/mytools
+#PATH=$PATH:$APPS/spring/bin
