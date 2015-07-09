@@ -6,6 +6,8 @@
 [credential]
 	helper = store
 [alias]
+    pl = pull
+    ps = push
 	co = checkout
 	br = branch
 	ci = commit
