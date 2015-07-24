@@ -28,18 +28,7 @@ elif [ -n "$(uname | grep Linux)" ]; then
 	fi
 fi
 
-echo "Copy $SCRIPT_DIR/.profile to $HOME/.profile"
-cp -f $SCRIPT_DIR/.profile $HOME/.profile
-
 echo "Copy $SCRIPT_DIR/pip/pip.ini to $HOME/.pip/pip.conf"
 rm -rf $HOME/.pip
 cp -r $SCRIPT_DIR/pip $HOME/.pip
 mv $HOME/.pip/pip.ini $HOME/.pip/pip.conf
-
-if [ -z "$(cat $HOME/.profile | grep LS_COLORS)" ]; then
-	echo "LS_COLORS=$LS_COLORS:'di=4;32:' ; export LS_COLORS" >> $HOME/.profile
-fi
-
-
-
-
